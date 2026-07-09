@@ -40,5 +40,18 @@ services:
       DB_NAME: compuroom
       PORT: 3001
 
+  frontend:
+    build: ./frontend
+
+    container_name: compuroom-web
+
+    restart: always
+
+    depends_on:
+      - backend
+
+    ports:
+      - "80:80"
+
 volumes:
   postgres_data:
